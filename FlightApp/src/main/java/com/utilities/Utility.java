@@ -16,6 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -83,25 +84,14 @@ public class Utility {
 
     public static void sendKeys(WebElement element, String value) {
         try {
+        	
             element.sendKeys(value);
         } catch (Exception e) {
             throw e;
         }
     }
     
-    public static void explicitWait(int seconds){
-
-    	try {
-
-    	Thread.sleep(seconds * 1000);
-
-    	} catch (Exception e) {
-
-    	e.printStackTrace();
-
-    	}
-
-    	}
+    
 
     public static void clickToRightOf(String tag, WebElement element) {
         try {

@@ -24,7 +24,7 @@ public class Hooks {
 
     static WebDriver driver;
 
-    @Before("@abc")
+    @Before("@bbb")
     public void before_launchBrowser(Scenario scenario) {
         if (System.getProperty("browser") == null) {
             String path = System.getProperty("user.dir");
@@ -68,11 +68,16 @@ public class Hooks {
 
     public static void initPageDrivers(WebDriver driver) {
         new AutomationBase(driver);
-        new PageObjects(driver);
+        
         new Utility(driver);
+        new TicketBookingPage(driver);
+        new InvoiceGeneratorPage(driver);
+        new UpdateCustStatus(driver);
+        
+        
     }
 
-    @After("@abc")
+    @After("@Smoke")
     public void after_quitBrowser(Scenario scenario) {
         if (scenario.isFailed() && driver != null) {
             byte[] data = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
